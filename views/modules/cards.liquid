@@ -1,0 +1,18 @@
+{% comment %}
+@name Cards
+@field cards CONTRIBUTOR Cards
+@field cards.text TEXTBOX Text
+@field cards.link LINK Link
+{% endcomment %}
+<section class="container section cards">
+  {% if heading %}<h2>{{ heading }}</h2>{% endif %}
+  <ul class="cards__list">
+    {% for card in cards %}
+      <li class="card">
+        {% if card.image %}{% image card.image %}{% endif %}
+        <h3>{% if card.link %}<a href="{{ card.link }}">{{ card.title }}</a>{% else %}{{ card.title }}{% endif %}</h3>
+        {% if card.text %}<p>{{ card.text }}</p>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

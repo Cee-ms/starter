@@ -1,0 +1,17 @@
+{
+  "name": "cee-ms-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A website to start from, rendered by Cee.ms",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.9"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env server.js",
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "dependencies": {
+    "@nakedcreativity/cee-ms-node": "^2.0.0-beta.8"
+  }
+}

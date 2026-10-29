@@ -1,0 +1,31 @@
+{% comment %}
+@name Standard page
+The page layout. The modules editors add go in the main region. Add more layouts to views/layouts/
+(each becomes a template in Cee.ms), and more regions to a layout for other places modules can go.
+{% endcomment %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title | default: page.name }} | {{ site.name }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
+    <link rel="stylesheet" href="/site.css" />
+    {% structureddata %}
+    {% socialmeta %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__name" href="/">{{ site.name }}</a>
+        {% navigation 'main' 'nav' %}
+      </div>
+    </header>
+    <main>
+      {% region main %}
+    </main>
+    <footer class="site-footer">
+      <div class="container">&copy; {{ 'now' | date: '%Y' }} {{ site.name }}</div>
+    </footer>
+  </body>
+</html>

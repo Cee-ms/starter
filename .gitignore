@@ -1,0 +1,4 @@
+node_modules/
+.env
+published/
+.DS_Store

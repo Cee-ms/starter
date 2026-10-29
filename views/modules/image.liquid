@@ -1,0 +1,10 @@
+{% comment %}
+@name Image
+@field caption TEXT Caption
+{% endcomment %}
+{% if image %}
+  <figure class="container section image">
+    {% image image %}
+    {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+  </figure>
+{% endif %}

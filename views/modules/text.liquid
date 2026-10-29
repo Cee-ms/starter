@@ -1,0 +1,8 @@
+{% comment %}
+@name Text
+@field body RICH_TEXT Text
+{% endcomment %}
+<section class="container section text">
+  {% if heading %}<h2>{{ heading }}</h2>{% endif %}
+  <div class="text__body">{{ body }}</div>
+</section>
