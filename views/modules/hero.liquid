@@ -4,11 +4,16 @@
 @field button LINK Button link
 @field button_label TEXT Button label
 {% endcomment %}
-<section class="hero{% if image %} hero--image{% endif %}">
-  {% if image %}<div class="hero__image">{% image image %}</div>{% endif %}
-  <div class="container hero__content">
-    <h1>{{ heading }}</h1>
-    {% if intro %}<p class="hero__intro">{{ intro }}</p>{% endif %}
-    {% if button %}<a class="button" href="{{ button }}">{{ button_label | default: 'Find out more' }}</a>{% endif %}
+<section class="relative isolate bg-slate-100{% if image %} text-white{% endif %}">
+  {% if image %}
+    <div class="absolute inset-0 -z-10 [&_img]:size-full [&_img]:object-cover">{% image image %}</div>
+    <div class="absolute inset-0 -z-10 bg-black/45"></div>
+  {% endif %}
+  <div class="mx-auto max-w-3xl px-4 py-20 sm:py-28">
+    <h1 class="text-4xl font-bold tracking-tight text-balance sm:text-5xl">{{ heading }}</h1>
+    {% if intro %}<p class="mt-4 text-xl {% if image %}text-white/90{% else %}text-slate-600{% endif %}">{{ intro }}</p>{% endif %}
+    {% if button %}
+      <a class="mt-8 inline-block rounded-full bg-accent px-6 py-3 font-semibold text-white no-underline hover:bg-accent-strong" href="{{ button }}">{{ button_label | default: 'Find out more' }}</a>
+    {% endif %}
   </div>
 </section>

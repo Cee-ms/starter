@@ -3,15 +3,29 @@
   "version": "1.0.0",
   "private": true,
   "description": "A website to start from, rendered by Cee.ms",
-  "main": "server.js",
+  "main": "dist/server.js",
   "engines": {
     "node": ">=22.9"
   },
   "scripts": {
-    "dev": "node --watch --env-file-if-exists=.env server.js",
-    "start": "node --env-file-if-exists=.env server.js"
+    "dev": "concurrently -k -n server,css -c blue,magenta \"npm:dev:server\" \"npm:dev:css\"",
+    "dev:server": "tsx watch --env-file-if-exists=.env src/server.ts",
+    "dev:css": "tailwindcss -i src/styles.css -o public/site.css --watch",
+    "build": "tsc && tailwindcss -i src/styles.css -o public/site.css --minify",
+    "start": "node --env-file-if-exists=.env dist/server.js",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@nakedcreativity/cee-ms-node": "^2.0.0-beta.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/express": "^4.17.25",
+    "@types/node": "^22.19.0",
+    "concurrently": "^9.2.0",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "~5.9.3"
   }
 }

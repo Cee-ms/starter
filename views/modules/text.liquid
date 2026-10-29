@@ -2,7 +2,7 @@
 @name Text
 @field body RICH_TEXT Text
 {% endcomment %}
-<section class="container section text">
-  {% if heading %}<h2>{{ heading }}</h2>{% endif %}
-  <div class="text__body">{{ body }}</div>
+<section class="mx-auto max-w-3xl px-4 py-12">
+  {% if heading %}<h2 class="mb-4 text-3xl font-bold tracking-tight">{{ heading }}</h2>{% endif %}
+  <div class="prose prose-slate max-w-none">{{ body }}</div>
 </section>

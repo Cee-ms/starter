@@ -1,8 +1,10 @@
 {% comment %}A menu from Cee.ms → Navigation, rendered by the navigation tag in the layout.{% endcomment %}
-<nav class="site-nav" aria-label="Main">
-  <ul>
+<nav aria-label="Main">
+  <ul class="flex flex-wrap gap-6">
     {% for item in pages %}
-      <li><a href="/{% if item.fullpath != 'home' %}{{ item.fullpath }}{% endif %}">{{ item.name }}</a></li>
+      <li>
+        <a class="text-slate-700 hover:text-accent" href="/{% if item.fullpath != 'home' %}{{ item.fullpath }}{% endif %}">{{ item.name }}</a>
+      </li>
     {% endfor %}
   </ul>
 </nav>

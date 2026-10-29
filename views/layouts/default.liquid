@@ -14,18 +14,18 @@ The page layout. The modules editors add go in the main region. Add more layouts
     {% structureddata %}
     {% socialmeta %}
   </head>
-  <body>
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <a class="site-header__name" href="/">{{ site.name }}</a>
+  <body class="flex min-h-screen flex-col bg-white font-sans text-slate-900 antialiased">
+    <header class="border-b border-slate-200">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4">
+        <a class="text-xl font-bold text-slate-900 no-underline" href="/">{{ site.name }}</a>
         {% navigation 'main' 'nav' %}
       </div>
     </header>
-    <main>
+    <main class="flex-1">
       {% region main %}
     </main>
-    <footer class="site-footer">
-      <div class="container">&copy; {{ 'now' | date: '%Y' }} {{ site.name }}</div>
+    <footer class="mt-12 border-t border-slate-200">
+      <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-slate-500">&copy; {{ 'now' | date: '%Y' }} {{ site.name }}</div>
     </footer>
   </body>
 </html>
